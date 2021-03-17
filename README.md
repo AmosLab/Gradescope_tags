@@ -9,8 +9,8 @@ This python script scrapes Gradescope exported data into tag organized studentwi
 
 ## Usage
 Install necessary Python packages: bokeh, numpy, pandas
- Bokeh installation: https://docs.bokeh.org/en/latest/docs/first_steps/installation.html
- (Install numpy and pandas similarly)
+Bokeh installation: https://docs.bokeh.org/en/latest/docs/first_steps/installation.html
+(Install numpy and pandas similarly)
  
 All the csv files exported from gradescope to be scraped should be placed in a folder named 'Data'. Store this 'Data' folder in the same place as the plot.py script. To store data differently or to use files with different extension, 'path' and 'extension' variables can be changed in the script respectively.
 
