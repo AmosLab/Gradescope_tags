@@ -1,7 +1,7 @@
 This project was funded by NSF Award # 1623141.
 Please contact co-PI Jenny Amos (jamos@illinois.edu or git: jennyamos) for questions
 
-# Gradescope_visualizations
+# Gradescope_tags
 This repo has code to scrape Gradescope exported data to create various tag organized visualizations of assessment data
 
 ## plot.py
