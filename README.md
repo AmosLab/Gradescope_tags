@@ -1,4 +1,4 @@
-This project was funded by NSF Award # 1623141
+This project was funded by NSF Award # 1623141.
 Please contact co-PI Jenny Amos (jamos@illinois.edu or git: jennyamos) for questions
 
 # Gradescope_Tags_Visualizations
