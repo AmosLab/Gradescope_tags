@@ -14,7 +14,12 @@ from bokeh.plotting import figure, show, save, output_file, ColumnDataSource, re
 from bokeh.models import Legend, HoverTool
 from bokeh.io import export_png, curdoc
 import os
-    
+
+
+"""
+Reads CSVs into dictionaries
+"""
+
 extension = 'csv'
 path = r'Data'
 all_filenames = [i for i in glob.glob(path + "/*." + format(extension))]
@@ -68,7 +73,9 @@ for i in range(len(all_filenames)):
                         else:
                             students[s] = {tag: (score, max_score)}'''
             
-                    
+"""
+Calculates Tag averages
+"""
                     
 for student, tag_lib in students.items():
     for tag, score in tag_lib.items():
