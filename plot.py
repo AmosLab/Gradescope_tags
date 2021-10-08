@@ -17,7 +17,7 @@ import os
 
 
 """
-Reads CSVs into dictionaries
+Reads CSVs into dictionaries 
 """
 
 extension = 'csv'
