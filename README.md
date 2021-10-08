@@ -5,7 +5,7 @@ Please contact co-PI Jenny Amos (jamos@illinois.edu or git: jennyamos) for quest
 This repo has code to scrape Gradescope exported data to create various tag organized visualizations of assessment data
 
 ## plot.py
-This python script scrapes Gradescope exported data into studentwise radar plots visualizing tag organized student performance vs class performance
+This python script scrapes Gradescope exported data into studentwise radar plots visualizing tag organized student performance vs class performance, _specifically for Menlo school's data. Please see sample csv in files._
 
 ## Usage
 Install necessary Python packages: bokeh, numpy, pandas
