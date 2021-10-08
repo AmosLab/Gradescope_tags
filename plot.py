@@ -1,5 +1,5 @@
 
-#Amos Research Lab. March 15th, 2021
+#Amos Research Lab. Oct 8th, 2021
 
 
 import bokeh
@@ -30,25 +30,25 @@ for i in range(len(all_filenames)):
     if (os.path.split(all_filenames[i])[1] != "Tag Categories.csv"):
         with open(all_filenames[i]) as csvfile:
             df=pd.read_csv(csvfile)
-            #print(df)
-            
+
+            max_score=4.0
             for index, row in df.iterrows():
+                s = row['Student name'] + '(' + str(row['Student ID']) + ')'
 
-              if (row['Assignment Submission ID'] == 'Point Values'):
+                students[s]= {'Abstraction': (float(row['Abstraction result']), max_score),
+                              'Code Fluency': (float(row['Code Fluency result']), max_score),
+                              'Correctness': (float(row['Correctness result']), max_score),
+                              'Documentation': (float(row['Documentation result']), max_score),
+                              'Reflection': (float(row['Reflection result']), max_score),
+                              'Resourcefulness': (float(row['Resourcefulness result']), max_score),
+                              'Style': (float(row['Style result']), max_score)}
 
-                max_score=row['Email']
-                max_score=float(max_score)
-            
-            for index, row in df.iterrows():
-    
 
-                if not pd.isna(row['Tags']):
+            '''if not pd.isna(row['Tags']):
                     
                     count += 1
-                    s = row['Email']
                     tags = row['Tags'].split('; ')
 
-                    #print(tags)
                     for tag in tags:
                         score = float(row['Score'])
                         
@@ -66,18 +66,20 @@ for i in range(len(all_filenames)):
 
                             students[row['Email']] = student_tags
                         else:
-                            students[s] = {tag: (score, max_score)}
-
-
+                            students[s] = {tag: (score, max_score)}'''
+            
+                    
+                    
 for student, tag_lib in students.items():
     for tag, score in tag_lib.items():
         tag_score = score[0]
         max_tag_score = score[1]
-        if tag in tag_average:
+        if not pd.isna(tag_score):
+          if tag in tag_average:
             tag_data = tag_average[tag]
             tag_data = (tag_data[0] + tag_score, tag_data[1] + max_tag_score)
             tag_average[tag] = tag_data
-        else:
+          else:
             tag_average[tag] = (tag_score, max_tag_score)
 
 # set width and height of image
@@ -191,13 +193,18 @@ def plot(student):
     for tag, score in tag_average.items():
         if tag in sdict:
             score = sdict[tag]
-            colors.append("pink")
+            if pd.isna(score):
+              score = (0,score[1])
+              colors.append("red")
+            else:
+              colors.append("pink")
         else:
             score = (0,score[1])
             colors.append("red")
 
         #score=list(score)
-        #score[1]=float(score[1])
+        #score[1]=float(score[1]
+        #print(score)
         average_score.append(score[0] / score[1])
         x_point.append(rad(score[0] / score[1]) * np.cos(angle_array[count]))
         y_point.append(rad(score[0] / score[1]) * np.sin(angle_array[count]))
